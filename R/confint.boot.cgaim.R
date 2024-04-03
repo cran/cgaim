@@ -36,7 +36,7 @@ confint.boot.cgaim <- function(object, parm, level = 0.95, ...)
       alims, na.rm = TRUE))
     
     # Names
-    rownames(res$alpha) <- names(unlist(object$alpha))
+    rownames(res$alpha) <- names(unlist(object$obs$alpha))
     colnames(res$alpha) <- level.labels
   }
   if (2 %in% parm){

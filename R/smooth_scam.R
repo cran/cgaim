@@ -17,7 +17,7 @@ smooth_scam <- function(x, y, formula, Xcov, ...)
     # print("scam"); flush.console()
   } else {
     gfit <- mgcv::gam(formula, data = scam_data, ...)
-    derivs <- as.data.frame(gratia::derivatives(gfit, newdata = scam_data))
+    derivs <- as.data.frame(gratia::derivatives(gfit, data = scam_data))
     # print("gam"); flush.console()
   }
   # Extract estimated terms
@@ -43,8 +43,8 @@ smooth_scam <- function(x, y, formula, Xcov, ...)
       if (iscons){
         dgx[,j] <- scam::derivative.scam(gfit, jind)$d
       } else {
-        dgx[,j] <- derivs[derivs$smooth == gfit$smooth[[jind]]$label, 
-          "derivative"]
+        dgx[,j] <- derivs[derivs$.smooth == gfit$smooth[[jind]]$label, 
+          ".derivative"]
       }
     } else {
       if (is.numeric(scam_data[j])){

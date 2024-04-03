@@ -22,8 +22,8 @@ alpha[3:4] <- cgaim:::normalize(alpha[3:4], "1")
 dfgam <- data.frame(y, i1 = cbind(x1, x2) %*% alpha[1:2], 
   i2 = cbind(x3, x4) %*% alpha[3:4])
 gamres <- mgcv::gam(y ~ s(i1) + s(i2), data = dfgam)
-derivs <- gratia::derivatives(gamres, newdata = dfgam)
-dgz <- matrix(derivs[["derivative"]], ncol = 2)
+derivs <- gratia::derivatives(gamres, data = dfgam)
+dgz <- matrix(derivs[[".derivative"]], ncol = 2)
 gz <- stats::predict(gamres, type = "terms")
 
 # Test with constraints

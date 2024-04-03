@@ -28,5 +28,5 @@ The package is available for installation from the usual CRAN repository. Altern
 
 ## Functions
 
-The main function of the package is the eponymous `cgaim` that fits the model. Then, the `print.cgaim` method allows displaying the results. The `confint.cgaim` method allows computing confidence intervals, either using normal approximation or through bootstrap. Ridge functions can be displayed using the `plot.cgaim` method, with the possibility to add confidence intervals. Finally, `predict.cgaim` allows computing the indices and perform prediction on new observations.
+The main function of the package is the eponymous `cgaim` that fits the model. Then, the `print.cgaim` method allows displaying the results. The `confint.cgaim` and `vcov.cgaim` methods allow computing confidence intervals and variance-covariance matrix using various approaches. Ridge functions can be displayed using the `plot.cgaim` method, with the possibility to add confidence intervals. Finally, `predict.cgaim` allows computing the indices and perform prediction on new observations.
 See the help of each function.

@@ -1,3 +1,12 @@
+## 1.0.1
+
+### New features
+- New `vcov` method
+
+### Bug fixes
+- Adapts `smooth_scam` function to new version of package `gratia`
+- Fixes names in confidence intervals from `confint.cgaim`
+
 ## 1.0.0
 
 ### Changes
