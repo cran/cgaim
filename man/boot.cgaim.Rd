@@ -64,7 +64,7 @@ The latter is particularly recommended for time series data.
 
 As fitting a large number of \code{cgaim} models can be computationally
 intensive, the function can be run in parallel, using the 
-\code{\link{doParallel}} package. This can be done by setting the
+\code{\link[doParallel]{doParallel}} package. This can be done by setting the
 argument \code{nc} to a value greater than 1, controlling the number
 of cores used in parallelization.
 }

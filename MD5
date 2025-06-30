@@ -1,9 +1,9 @@
-16be1112066ccf0751900eed74ad0354 *DESCRIPTION
+35e7df6abd7d3574aa2379cde7ab9780 *DESCRIPTION
 cfe82dea394279aac9c02260ddecb292 *NAMESPACE
-81003c8d392183c3d3e456ef145f0341 *NEWS.md
+db8aaf638aa13da95dee4a98be615bdd *NEWS.md
 f9ddf13e5de855e2d0d2499f13142da8 *R/L2.R
 835e0d2f17950559085d5d799bc06d1e *R/alpha_update.R
-cca52d02f32b928794dd4910f1d9ac7c *R/boot.cgaim.R
+c90b3f31e2465edb63f2411e649beb76 *R/boot.cgaim.R
 da5dea19ad7ed1a47dfc59d37ee8e21d *R/build_constraints.R
 ea76099ccfeb50faac0d9a6ebd5b842b *R/cgaim.R
 0806d08a08e201086f5975ace91ed213 *R/cgaim.control.R
@@ -42,9 +42,9 @@ d9c4ebb83cdaabbbc82740e4fe93c186 *R/update_osqp.R
 012ef34de5b2e8bfbab2caf7bcdc0dff *R/vcov.cgaim.R
 ac01459029b12b2bdd55ce9d3451e81c *R/vcov_alpha.R
 0c06e6f978b21de677791521cbe2c0d9 *R/vcov_beta.R
-927dfe702407d47a893f15df5de7364d *README.md
+51c360f90ae805c01a0b2eaf0e640efd *README.md
 37f6575a5b0fccf5a556124eff691efb *inst/CITATION
-6562ba7af05420fc1fa5d90c203af187 *man/boot.cgaim.Rd
+6b8e33f1db76ad30c68bca7f134f3809 *man/boot.cgaim.Rd
 bbab6ba5dd60bad943b31a71675d3cd8 *man/build_constraints.Rd
 9e45746c222fbc674de911a421d55bf6 *man/cgaim.Rd
 8f817a287529b0d1086c44d9a76831ef *man/cgaim.control.Rd
