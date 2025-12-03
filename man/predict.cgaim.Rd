@@ -41,6 +41,8 @@ Uses a fitted \code{cgaim} object and computes prediction for the
    ridge functions values at the provided data.
 }
 \details{
+Predictions of ridge functions at new index values is made through natural interpolation splines, which ensures shape-constraints are enforced. When predicted index result in values outside the observed range, natural splines ensure linear extrapolation, which respects any shape-constraint.
+
 \code{type = "terms"} returns the scaled ridge functions, i.e. before being multiplied by scaling coefficients beta.
 }
 \examples{

@@ -1,6 +1,6 @@
 Package: cgaim
 Title: Constrained Groupwise Additive Index Models
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: 
     person(given = "Pierre",
            family = "Masselot",
@@ -11,15 +11,15 @@ Description: Fits constrained groupwise additive index models and provides funct
 License: GPL-3
 Encoding: UTF-8
 Suggests: testthat (>= 2.1.0)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports: graphics, stats, scam, scar, quadprog, osqp, limSolve, Matrix,
         grDevices, methods, MASS, cgam, mgcv, gratia, doParallel,
         coneproj, TruncatedNormal, foreach
 URL: https://github.com/PierreMasselot/cgaim
 NeedsCompilation: no
-Packaged: 2025-06-29 19:52:04 UTC; PierreMasselot
+Packaged: 2025-12-03 11:17:02 UTC; PierreMasselot
 Author: Pierre Masselot [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-7326-1290>)
 Maintainer: Pierre Masselot <pierre.masselot@lshtm.ac.uk>
 Repository: CRAN
-Date/Publication: 2025-06-30 07:10:02 UTC
+Date/Publication: 2025-12-03 11:40:07 UTC

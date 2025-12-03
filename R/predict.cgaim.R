@@ -20,7 +20,9 @@
 #' @param ... For compatibility with the default \code{predict} method. Unused
 #'    at the moment.
 #' 
-#' @details \code{type = "terms"} returns the scaled ridge functions, i.e. before being multiplied by scaling coefficients beta. 
+#' @details Predictions of ridge functions at new index values is made through natural interpolation splines, which ensures shape-constraints are enforced. When predicted index result in values outside the observed range, natural splines ensure linear extrapolation, which respects any shape-constraint.
+#' 
+#' \code{type = "terms"} returns the scaled ridge functions, i.e. before being multiplied by scaling coefficients beta. 
 #'
 #' @return When \code{type = "response"} returns a vector of predicted response.
 #'    When \code{type = "terms"} or \code{"scterms"}, returns a matrix of evaluated ridge and 
@@ -121,9 +123,8 @@ predict.cgaim <- function(object, newdata,
     gterms <- matrix(0, nrow(mfind), p)
     for (j in 1:p){
       if (is.numeric(Xterms[[j]])){
-        inter_fun <- ifelse(j %in% c(gind, sind), "spline", "approx")
-        gterms[,j] <- suppressWarnings(do.call(inter_fun, 
-          list(x = objx[,j], y = object$gfit[,j], xout = Xterms[[j]]))$y) 
+        gterms[,j] <- stats::spline(x = objx[,j], y = object$gfit[,j], 
+          xout = Xterms[[j]], method = "natural")$y
       } else {
         faccoefs <- unique(object$gfit[,j])
         names(faccoefs) <- unique(objx[,j])

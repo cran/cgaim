@@ -1,6 +1,6 @@
-35e7df6abd7d3574aa2379cde7ab9780 *DESCRIPTION
+6ae12186522721394530a96da0f59f35 *DESCRIPTION
 cfe82dea394279aac9c02260ddecb292 *NAMESPACE
-db8aaf638aa13da95dee4a98be615bdd *NEWS.md
+4b7af0d7301e27327968b734e5e819a9 *NEWS.md
 f9ddf13e5de855e2d0d2499f13142da8 *R/L2.R
 835e0d2f17950559085d5d799bc06d1e *R/alpha_update.R
 c90b3f31e2465edb63f2411e649beb76 *R/boot.cgaim.R
@@ -22,7 +22,7 @@ a394cf84653a80d1ba7f4f9a3aaed59b *R/g.R
 ebea18a82ce802518ad495ca5663b42c *R/nullspace.R
 7b2bf564c10689bc622821d4d6090566 *R/offset_convergence.R
 f2381a0b0679788791b05479f35069eb *R/plot.cgaim.R
-c548579a41647d4bc08aeacb26416364 *R/predict.cgaim.R
+75e800ad8365f2451a505a46d814912c *R/predict.cgaim.R
 92eafa9d86765780a1ec628420e855ec *R/print.cgaim.R
 c19601c31ca98b21f5ccecf2df75439a *R/residual_sd.R
 15d669d7415787d829db23536486fdec *R/s.R
@@ -51,7 +51,7 @@ bbab6ba5dd60bad943b31a71675d3cd8 *man/build_constraints.Rd
 9c2243b9df710c27ca9ba81c5f4c860e *man/confint.cgaim.Rd
 58b136e9de58ba7c5ba648baf85f5922 *man/g.Rd
 bfb8252039ae395442e7d6b25ffadc44 *man/plot.cgaim.Rd
-d34be28ad8f3d176a543550e2567adc5 *man/predict.cgaim.Rd
+82e8b96dde27b3bc88589385486f74c5 *man/predict.cgaim.Rd
 3b40a8424d77c15b7b52877802fb9920 *man/print.cgaim.Rd
 495d79681d76fd57791bc84adb80b68c *man/vcov.cgaim.Rd
 f408e504cedadfe95dd623369b896a45 *tests/testthat.R

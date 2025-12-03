@@ -1,3 +1,8 @@
+# 1.0.3
+
+## Bug fixes
+- `predict` method: fixed an issue with extrapolation of some terms outside the observed range (thanks to Nuwani Palihawadana)
+
 # 1.0.2
 
 - Resubmission of the package which was archived because of some dependencies
