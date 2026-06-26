@@ -15,17 +15,21 @@ cgaim.fit <- function(y, x, index, w, Cmat = NULL, bvec = NULL,
   # Initialize alpha
   if (is.null(control$alpha.start)){
     if (control$init.type == "random"){
-      pars <- control$sample_pars
-      pars$G <- Cmat
-      pars$H <- bvec
-      res <- suppressWarnings(do.call(limSolve::xsample, pars))$X
-      alpha <- res[nrow(res),]
+      Hmat <- nullspace(t(Cmat))
+      C2 <- rbind(Cmat, t(Hmat))
+      b2 <- c(bvec, rep(-Inf, ncol(Hmat)))
+      lmres <- stats::lm(y ~ 0 + x, weights = w)
+      b <- C2 %*% stats::coef(lmres)
+      sig <- C2 %*%  stats::vcov(lmres) %*% t(C2)
+      mvtsimu <- TruncatedNormal::rtmvnorm(n = 1, mu = b, sigma = sig, 
+        lb = b2)
+      alpha <- solve(C2) %*% mvtsimu
     } else if(control$init.type == "regression"){
       pars <- control[names(control) %in% methods::formalArgs(alpha_update)]
       pars <- c(pars, list(
         y = y, x = x, w = w, index = index, Cmat = Cmat, bvec = bvec,
-        dgz <- matrix(1, n, p), alpha = rep(0, d),
-        delta <- FALSE
+        dgz = matrix(1, n, p), alpha = rep(0, d),
+        delta = FALSE
       ))
       alpha <- do.call(alpha_update, pars)$alpha
     }

@@ -21,7 +21,7 @@
 #' @param solver The quadratic programming solver to use. One of \code{"osqp"} (the default), \code{"quadprog"} or \code{"coneproj"}.
 #' @param ctol Tolerance value on constraints. See details.
 #' @param qp_pars A named list of parameters to be passed to the \code{solver} function. 
-#' @param sample_pars A named list of parameters to be passed to \code{\link[limSolve]{xsample}} when randomly generating initial alpha coefficients.
+#' @param sample_pars DEPRECATED. Only kept for backcompatibility.
 #' @param sm_method Character specifying which method to use for constrained smoothing. Either \code{\link[scam]{scam}} (the default), \code{\link[cgam]{cgam}} or \code{\link[scar]{scar}}.
 #' @param sm_pars Named list to pass specific parameters to the smoothing function of \code{sm_method}. See help pages of corresponding functions.
 #' 
@@ -29,7 +29,7 @@
 #' 
 #' By default, when the RSS fails to decrease during a step (a "bad" step), the step length is iteratively halved until the RSS decreases. The minimum step length allowed is controlled by \code{min.step.len} as the proportion of the original step length. This is a common behaviour in non-linear least squares and is implement in \code{\link[stats]{nls}} for instance, but can be turned off by setting \code{halving = FALSE}, in which case the algorithm stops for any bad step. 
 #' 
-#' The alpha updating step consists in estimating an update vector in a descent direction by a constrained regression of index derivatives on the current residuals of the model. This is fitted through a quadratic program, ensuring the updated coefficients respect the constraints at each step of the algorithm. Initial values can either be provided by the user through the argument \code{alpha.start} or be internally generated. The latter is controlled by the argument \code{init.type} allowing to initialize the weights either by regressing the index variables on the response (\code{init.type = "regression"}) ensuring feasible starting values (the default), or by randomly generating feasible values (\code{init.type = "random"}). In the latter case, random generation is performed by the function \code{\link[limSolve]{xsample}} which can be controlled by the parameter \code{sample_pars}. When random initial values are chosen, it is recommended to fit the algorithm several time and keep the best fit, to avoid falling into a local minimum. 
+#' The alpha updating step consists in estimating an update vector in a descent direction by a constrained regression of index derivatives on the current residuals of the model. This is fitted through a quadratic program, ensuring the updated coefficients respect the constraints at each step of the algorithm. Initial values can either be provided by the user through the argument \code{alpha.start} or be internally generated. The latter is controlled by the argument \code{init.type} allowing to initialize the weights either by regressing the index variables on the response (\code{init.type = "regression"}) ensuring feasible starting values (the default), or by randomly generating feasible values (\code{init.type = "random"}). In the latter case, random generation is performed by truncated multivariate normal. When random initial values are chosen, it is recommended to fit the algorithm several time and keep the best fit, to avoid falling into a local minimum. 
 #' 
 #' At the moment, three solvers are available to perform quadratic programming, which can be controlled by the argument \code{solver}. By default the function \code{\link[osqp]{solve_osqp}} (\code{solver = "osqp"}) is used. Alternatively the more established but slower function \code{\link[quadprog]{solve.QP}} (\code{solver = "quadprog"}) as well as \code{\link[coneproj]{qprog}} (\code{solver = "coneproj"}) functions can be used. Although default parameters are internally set for these function, they can entirely be controlled through the argument \code{qp_pars}. See their specific help pages for details.
 #' 
@@ -54,7 +54,7 @@ cgaim.control <- function(
   convergence_criterion = "rss", trace = FALSE,
   # For alpha estimation
   alpha.start = NULL, init.type = "regression", norm.type = "1", check.Cmat = TRUE, 
-  solver = "osqp", ctol = 1e-3, qp_pars = list(), sample_pars = list(),
+  solver = "osqp", ctol = 1e-3, qp_pars = list(), sample_pars = list(), 
   # For smoothing
   sm_method = "scam", sm_pars = list())
 {

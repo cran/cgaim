@@ -12,8 +12,8 @@ check_cmat <- function(Cmat){
   for (i in seq_len(ncons)){
     y <- tCmat[,i]
     x <- tCmat[,-c(i, which(redundant)),drop = FALSE]
-    res <- limSolve::nnls(x, y)
-    redundant[i] <- isTRUE(all.equal(y, drop(x %*% res$X)))
+    res <- nnls::nnls(x, y)
+    redundant[i] <- isTRUE(all.equal(y, drop(x %*% res$x)))
   }
   which(redundant)
 }

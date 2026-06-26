@@ -1,3 +1,8 @@
+# 1.0.4
+
+## Changes
+- Changed the method for random initialisation of alpha parameters. Also removes the control parameter `sample_pars`.
+
 # 1.0.3
 
 ## Bug fixes

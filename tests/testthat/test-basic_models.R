@@ -174,3 +174,20 @@ ans <- cgaim(y ~ g(x1, x2, label = "i1", s_opts = list(sp = 0)) +
   data = df3)
 cia <- confint(ans, B = 5)
 plot(ans, ci = cia, select = 3)
+
+
+#----------------------------
+# Test initialisation
+#----------------------------
+
+# Fit model
+rinit1 <- cgaim(y ~ g(x1, x2, acons = list(monotone = 1)), 
+  data = df1, control = list(init.type = "random"))
+rinit2 <- cgaim(y ~ g(x1, x2, acons = list(monotone = -1)), 
+  data = df1, control = list(init.type = "random"))
+
+# test
+test_that("random intialisation works", {
+  expect_gte(t(c(-1, 1)) %*% unlist(rinit1$alpha), 0)
+  expect_gte(t(c(1, -1)) %*% unlist(rinit2$alpha), 0)
+})
